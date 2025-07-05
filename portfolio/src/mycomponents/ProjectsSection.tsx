@@ -5,18 +5,45 @@ type Project = {
   description: string;
   link?: string;
   image?: string;
-  tech?: string[]; // Add this
+  tech?: string[];
 };
 
 const projects: Project[] = [
   {
+    title: "Find-Movie",
+    description: "A movie search application that allows users to find and discover movies.",
+    link: "",
+    image: "/findmovie.jpg",
+    tech: ["React", "Javascript", "TypeScript", "Html", "CSS"],
+  },
+  {
+    title: "E-commerce Platform",
+    description: "A full-stack e-commerce application with user authentication and payment integration.",
+    link: "",
+    image: "/ecommerce.jpg",
+    tech: ["React", "Javascript", "TypeScript", "Html", "CSS"],
+  },
+  {
+    title: "Birthday Wisher",
+    description: "A simple application to send birthday wishes through link.",
+    link: "",
+    image: "/birthday.jpg",
+    tech: ["React", "TypeScript", "Html", "Tailwind-CSS", "Shadcn-UI"],
+  },
+  {
+    title: "Todo List",
+    description: "A simple todo list application to manage tasks.",
+    link: "",
+    image: "/todo.jpg",
+    tech: ["React Vue", "TypeScript", "Html", "Tailwind CSS", "Shadcn-UI"],
+  },
+  {
     title: "Portfolio Website",
     description: "A personal portfolio built with React, TypeScript, and Tailwind CSS.",
-    link: "https://your-portfolio-link.com",
+    link: "",
     image: "/portfolio.jpg",
     tech: ["React", "TypeScript", "Tailwind CSS"],
-  },
-  // Add more projects here
+  }
 ];
 
 function ProjectsSection() {
