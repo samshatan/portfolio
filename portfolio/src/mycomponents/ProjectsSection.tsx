@@ -28,7 +28,7 @@ const projects: Project[] = [
     description: "A simple application to send birthday wishes through link.",
     link: "",
     image: "/birthday.jpg",
-    tech: ["React", "TypeScript", "Html", "Tailwind-CSS", "Shadcn-UI"],
+    tech: ["React Vue", "TypeScript", "Html", "Tailwind-CSS", "Shadcn-UI", "JavaScript"],
   },
   {
     title: "Todo List",
@@ -42,7 +42,7 @@ const projects: Project[] = [
     description: "A personal portfolio built with React, TypeScript, and Tailwind CSS.",
     link: "",
     image: "/portfolio.jpg",
-    tech: ["React", "TypeScript", "Tailwind CSS"],
+    tech: ["React Vue", "TypeScript", "Tailwind CSS", "Html"],
   }
 ];
 

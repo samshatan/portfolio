@@ -12,9 +12,10 @@ function Header() {
           <li><a href="#skills" className="hover:text-black dark:hover:text-white transition-colors">Skills</a></li>
           <li><a href="#projects" className="hover:text-black dark:hover:text-white transition-colors">Projects</a></li>
           <li><a href="#contact" className="hover:text-black dark:hover:text-white transition-colors">Contact</a></li>
+          <li><a href="#techstack" className="hover:text-black dark:hover:text-white transition-colors"> Tech Stack</a></li>
           <li><DarkMode /></li>
           <li>
-            <a href="share" className="hover:text-black dark:hover:text-white transition-colors">
+            <a href="https://github.com/samshatan" className="hover:text-black dark:hover:text-white transition-colors">
               <SendHorizonal />
             </a>
           </li>
