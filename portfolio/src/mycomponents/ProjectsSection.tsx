@@ -37,13 +37,13 @@ const projects: Project[] = [
     image: "/todo.jpg",
     tech: ["React Vue", "TypeScript", "Html", "Tailwind CSS", "Shadcn-UI"],
   },
-  {
-    title: "Portfolio Website",
-    description: "A personal portfolio built with React, TypeScript, and Tailwind CSS.",
-    link: "",
-    image: "/portfolio.jpg",
-    tech: ["React Vue", "TypeScript", "Tailwind CSS", "Html"],
-  }
+  // {
+  //   title: "Portfolio Website",
+  //   description: "A personal portfolio built with React, TypeScript, and Tailwind CSS.",
+  //   link: "",
+  //   image: "/portfolio.jpg",
+  //   tech: ["React Vue", "TypeScript", "Tailwind CSS", "Html"],
+  // }
 ];
 
 function ProjectsSection() {

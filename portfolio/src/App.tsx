@@ -15,7 +15,7 @@ function App() {
       <Header/>
       <HeroSection/>
       <AboutSection/>
-      <div className="h-[600px] rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-900"><SkillsFlow/></div>
+      {/* <div className="h-[600px] rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-900"><SkillsFlow/></div> */}
       <SkillsSection/>
       <ProjectsSection/>
       <ContactSection/>
