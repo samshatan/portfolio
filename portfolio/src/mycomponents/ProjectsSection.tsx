@@ -14,14 +14,14 @@ const projects: Project[] = [
     description: "A movie search application that allows users to find and discover movies.",
     link: "",
     image: "/findmovie.jpg",
-    tech: ["React", "Javascript", "TypeScript", "Html", "CSS"],
+    tech: ["React", "Javascript", "Html", "CSS"],
   },
   {
     title: "E-commerce Platform",
     description: "A full-stack e-commerce application with user authentication and payment integration.",
     link: "",
     image: "/ecommerce.jpg",
-    tech: ["React", "Javascript", "TypeScript", "Html", "CSS"],
+    tech: ["React", "Javascript", "TypeScript", "Html", "CSS", "Node.js", "Express", "MongoDB"],
   },
   {
     title: "Birthday Wisher",

@@ -2,6 +2,7 @@ import './App.css'
 import AboutSection from './mycomponents/AboutSection'
 import ContactSection from './mycomponents/ContactSection'
 import { DarkModeProvider } from './mycomponents/DarkModeProvider'
+import Footer from './mycomponents/footer'
 import Header from './mycomponents/Header'
 import HeroSection from './mycomponents/HeroSection'
 import ProjectsSection from './mycomponents/ProjectsSection'
@@ -19,6 +20,7 @@ function App() {
       <SkillsSection/>
       <ProjectsSection/>
       <ContactSection/>
+      <Footer/>
     </DarkModeProvider>
     </>
   )
