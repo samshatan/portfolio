@@ -6,22 +6,21 @@ import Footer from './mycomponents/footer'
 import Header from './mycomponents/Header'
 import HeroSection from './mycomponents/HeroSection'
 import ProjectsSection from './mycomponents/ProjectsSection'
-import SkillsFlow from './mycomponents/SkillsFlow'
 import SkillsSection from './mycomponents/SkillsSection'
 
 function App() {
   return (
     <>
-    <DarkModeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
-      <Header/>
-      <HeroSection/>
-      <AboutSection/>
-      {/* <div className="h-[600px] rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-900"><SkillsFlow/></div> */}
-      <SkillsSection/>
-      <ProjectsSection/>
-      <ContactSection/>
-      <Footer/>
-    </DarkModeProvider>
+      <DarkModeProvider defaultTheme='dark' storageKey='vite-ui-theme'>
+        <Header />
+        <HeroSection />
+        <AboutSection />
+        {/* <div className="h-[600px] rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-900"><SkillsFlow/></div> */}
+        <SkillsSection />
+        <ProjectsSection />
+        <ContactSection />
+        <Footer />
+      </DarkModeProvider>
     </>
   )
 }
