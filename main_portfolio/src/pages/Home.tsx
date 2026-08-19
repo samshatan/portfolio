@@ -1,10 +1,33 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { motion } from 'motion/react';
-import { OrnateWrapper } from '../components/OrnateWrapper';
+import { BannerPanel } from '../components/BannerPanel';
 import { Send, Sparkles } from 'lucide-react';
 
-export function Home() {
+const contents = [
+  {
+    title: "The Story",
+    desc: "How curiosity turned into a craft, chapter by chapter.",
+    page: "Story",
+  },
+  {
+    title: "The Inventory",
+    desc: "Shields, swords and scrolls — the tools of the trade.",
+    page: "Inventory",
+  },
+  {
+    title: "The Quest Log",
+    desc: "Apps, tools and experiments that made it out the door.",
+    page: "Projects",
+  },
+  {
+    title: "Send a Letter",
+    desc: "The owl is always ready for a new message.",
+    page: "Contact",
+  },
+];
+
+export function Home({ onNavigate }: { onNavigate: (page: string) => void }) {
   const [sageQuery, setSageQuery] = useState("");
   const [sageResponse, setSageResponse] = useState("");
   const [isAsking, setIsAsking] = useState(false);
@@ -22,14 +45,14 @@ export function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: sageQuery })
       });
-      
+
       const data = await res.json();
       if (data.answer) {
         setSageResponse(data.answer);
       } else if (data.error) {
         setSageResponse(`Error: ${data.error}`);
       }
-    } catch (err) {
+    } catch {
       setSageResponse("The magical connection was interrupted. Please try again later.");
     } finally {
       setIsAsking(false);
@@ -38,79 +61,94 @@ export function Home() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="flex flex-col gap-8 items-center text-center pt-8 pb-12"
+      className="flex flex-col gap-8 pb-4"
     >
-      <header className="text-center mb-4">
-        <h1 className="text-5xl mb-2 text-amber-950 fantasy-font">Sameer Maurya</h1>
-        <p className="text-lg italic text-amber-800">Web developer and competitive programmer</p>
+      <header>
+        <h1 className="text-4xl md:text-5xl mb-2 text-amber-950 fantasy-font">Sameer Maurya</h1>
+        <p className="text-base md:text-lg italic text-amber-800">
+          Developer of warm interfaces and quiet backends.
+        </p>
       </header>
-      
-      <OrnateWrapper className="p-8 max-w-2xl bg-amber-50/50">
-          <p className="leading-relaxed text-gray-800 text-lg">
-            I build modern web experiences with <strong>React, TypeScript, and Tailwind CSS</strong>, balancing thoughtful interfaces with practical engineering. 
-            <br/><br/>
-            This portfolio gathers selected projects, the tools I use most, and a little context about how I approach development.
-            <br/><br/>
-            I enjoy solving problems, exploring new technologies, and shaping interfaces that feel clear, useful, and enjoyable to use.
+
+      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 ">
+        <img
+          alt="Illustrated owl with glasses beside a shelf of books and a steaming mug"
+          className="w-full max-w-[220px] h-auto drop-shadow-md shrink-0"
+          src="/owl-shelf.png"
+        />
+
+        <BannerPanel title="Prologue" className="flex-1 w-full">
+          <h2 className="text-2xl mb-3 text-amber-950 fantasy-font text-center">Welcome to the Reading Nook</h2>
+          <p className="leading-relaxed text-gray-800 text-sm md:text-base text-center">
+            The kettle is on, the shelves are open, and this nook is where I keep the work I care about.
+            Warm interfaces, quiet backends, and the small details that make a product feel considered.
+            Wander at your own pace.
           </p>
-      </OrnateWrapper>
-
-      {/* Sage's Corner */}
-      <OrnateWrapper className="w-full max-w-2xl bg-[#1e1e1e] border-gray-600 mt-4 relative overflow-hidden">
-        {/* Magical subtle glow */}
-        <div className="absolute -top-10 -right-10 w-40 h-40 bg-purple-600/20 blur-3xl rounded-full pointer-events-none"></div>
-        <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-600/20 blur-3xl rounded-full pointer-events-none"></div>
-
-        <div className="p-6 relative z-10 flex flex-col gap-4">
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <Sparkles className="text-purple-400" size={24} />
-            <h2 className="fantasy-font text-3xl text-gray-100 font-bold">Sage's Corner</h2>
-            <Sparkles className="text-purple-400" size={24} />
-          </div>
-          
-          <p className="text-gray-400 italic text-sm mb-2">
-            "Ask about Sameer's projects, front-end skills, or the tools behind this portfolio."
-          </p>
-
-          <div className="bg-[#121212] border border-gray-700 rounded-lg p-4 min-h-[120px] flex items-start text-left shadow-inner">
-            {sageResponse ? (
-              <motion.div 
-                key={sageResponse} 
-                initial={{ opacity: 0 }} 
-                animate={{ opacity: 1 }} 
-                className="text-gray-300 text-sm leading-relaxed whitespace-pre-wrap"
-              >
-                {sageResponse}
-              </motion.div>
-            ) : (
-              <span className="text-gray-600 italic text-sm">The Sage awaits your query...</span>
-            )}
-          </div>
-
-          <form onSubmit={askSage} className="flex gap-2">
-            <input 
-              type="text" 
-              value={sageQuery}
-              onChange={(e) => setSageQuery(e.target.value)}
-              placeholder="E.g., What did Sameer build with React?"
-              className="flex-1 bg-[#2a2a2a] text-gray-200 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:border-purple-500 transition-colors placeholder-gray-500 text-sm"
-              disabled={isAsking}
-            />
-            <button 
-              type="submit"
-              disabled={isAsking || !sageQuery.trim()}
-              className="bg-purple-900 hover:bg-purple-800 text-purple-100 px-4 py-2 rounded-lg border border-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+          <div className="flex justify-center mt-6">
+            <button
+              type="button"
+              onClick={() => onNavigate('Story')}
+              className="px-8 py-2.5 rounded-full bg-[#efe3cc] border border-amber-300/80 text-amber-950 fantasy-font shadow-sm hover:bg-[#e8d8b8] hover:-translate-y-0.5 transition-all"
             >
-              <Send size={18} />
+              Begin the story.
             </button>
-          </form>
-        </div>
-      </OrnateWrapper>
+          </div>
+        </BannerPanel>
+      </div>
 
+      <BannerPanel title="Table of Contents">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {contents.map((item) => (
+            <button
+              key={item.title}
+              type="button"
+              onClick={() => onNavigate(item.page)}
+              className="toc-card text-left hover:-translate-y-0.5 transition-transform"
+            >
+              <h3 className="fantasy-font text-lg text-amber-950 mb-1">{item.title}</h3>
+              <p className="text-sm text-amber-900/80 leading-relaxed">{item.desc}</p>
+            </button>
+          ))}
+        </div>
+      </BannerPanel>
+
+      <BannerPanel title="Sage's Corner">
+        <div className="flex items-center justify-center gap-2 mb-3">
+          <Sparkles className="text-amber-700" size={18} />
+          <p className="text-amber-800 italic text-sm text-center">
+            Ask about projects, front-end skills, or the tools behind this portfolio.
+          </p>
+          <Sparkles className="text-amber-700" size={18} />
+        </div>
+        <div className="toc-card min-h-[96px] mb-3 text-left">
+          {sageResponse ? (
+            <p className="text-sm text-amber-950 leading-relaxed whitespace-pre-wrap">{sageResponse}</p>
+          ) : (
+            <span className="text-amber-800/70 italic text-sm">The Sage awaits your query...</span>
+          )}
+        </div>
+        <form onSubmit={askSage} className="flex gap-2">
+          <input
+            type="text"
+            value={sageQuery}
+            onChange={(e) => setSageQuery(e.target.value)}
+            placeholder="E.g., What did Sameer build with React?"
+            className="flex-1 bg-[#f8f1e3] text-amber-950 border border-amber-300/70 rounded-full px-4 py-2 focus:outline-none focus:border-amber-500 transition-colors placeholder-amber-800/50 text-sm"
+            disabled={isAsking}
+          />
+          <button
+            type="submit"
+            disabled={isAsking || !sageQuery.trim()}
+            className="bg-amber-800 hover:bg-amber-700 text-amber-50 px-4 py-2 rounded-full border border-amber-900/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+          >
+            <Send size={16} />
+          </button>
+        </form>
+      </BannerPanel>
     </motion.div>
   );
 }
