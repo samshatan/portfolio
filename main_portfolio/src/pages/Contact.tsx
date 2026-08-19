@@ -1,52 +1,130 @@
 import { motion } from 'motion/react';
-import { OrnateWrapper } from '../components/OrnateWrapper';
+import { BannerPanel } from '../components/BannerPanel';
+import { Code2, Github, Globe, Instagram, Linkedin, Mail, Send } from 'lucide-react';
 
 export function Contact() {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="flex flex-col gap-6 items-center"
+      className="flex flex-col gap-8"
     >
-      <header className="text-center mb-6">
-        <h1 className="text-4xl mb-2 text-amber-950 fantasy-font">Get In Touch</h1>
-        <p className="text-amber-800 italic">Have a project, idea, or opportunity to discuss?</p>
+      <header className="text-center">
+        <h1 className="text-4xl md:text-5xl mb-2 text-amber-950 fantasy-font">Contact</h1>
+        <p className="text-amber-800 italic">Send a letter – the owl knows the way.</p>
       </header>
 
-      <OrnateWrapper className="w-full max-w-md p-8 bg-amber-50/80">
-        <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
-          <div className="flex flex-col gap-1.5">
-            <label className="text-amber-950 font-bold text-sm uppercase tracking-wider">Name</label>
-            <input 
-              type="text" 
-              className="bg-[#f8f1e3] border-2 border-amber-300/50 rounded-md p-2.5 text-amber-950 focus:outline-none focus:border-amber-500 transition-colors shadow-inner" 
-              placeholder="Your name" 
-            />
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+        <BannerPanel title="Write to Me" className="lg:col-span-3">
+          <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-amber-950 font-bold text-sm">Your name</label>
+              <input
+                type="text"
+                className="contact-field"
+                placeholder="A curious traveller."
+              />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-amber-950 font-bold text-sm">Your email</label>
+              <input
+                type="email"
+                className="contact-field"
+                placeholder="you@example.com"
+              />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-amber-950 font-bold text-sm">Your message</label>
+              <textarea
+                className="contact-field min-h-[140px] resize-y"
+                placeholder="Tell me about the quest..."
+              />
+            </div>
+            <button
+              type="submit"
+              className="self-start flex items-center gap-2 px-8 py-2.5 rounded-full bg-[#efe3cc] border border-amber-300/80 text-amber-950 fantasy-font shadow-sm hover:bg-[#e8d8b8] hover:-translate-y-0.5 transition-all"
+            >
+              <Send size={16} />
+              Send Letter
+            </button>
+          </form>
+        </BannerPanel>
+
+        <BannerPanel title="Where to Find Me" className="lg:col-span-2">
+          <div className="flex flex-col gap-3">
+            <a href="mailto:sameermaurya97044@gmail.com" className="find-me-card">
+              <Mail size={18} className="text-amber-800 shrink-0" />
+              <div>
+                <h3 className="font-bold text-amber-950 text-sm">Email</h3>
+                <p className="text-sm text-amber-800 break-all">sameermaurya97044@gmail.com</p>
+              </div>
+            </a>
+            <div className="find-me-card">
+              <Send size={18} className="text-amber-800 shrink-0" />
+              <div>
+                <h3 className="font-bold text-amber-950 text-sm">Owl Post</h3>
+                <p className="text-sm text-amber-800">Usually answers within a day.</p>
+              </div>
+            </div>
+            <a
+              href="https://github.com/samshatan"
+              target="_blank"
+              rel="noreferrer"
+              className="find-me-card"
+            >
+              <Github size={18} className="text-amber-800 shrink-0" />
+              <div>
+                <h3 className="font-bold text-amber-950 text-sm">GitHub</h3>
+                <p className="text-sm text-amber-800">github.com/samshatan</p>
+              </div>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/samshatan/"
+              target="_blank"
+              rel="noreferrer"
+              className="find-me-card"
+            >
+              <Linkedin size={18} className="text-amber-800 shrink-0" />
+              <div>
+                <h3 className="font-bold text-amber-950 text-sm">LinkedIn</h3>
+                <p className="text-sm text-amber-800">linkedin.com/in/samshatan</p>
+              </div>
+            </a>
+            <a
+              href="https://www.instagram.com/samshatan"
+              target="_blank"
+              rel="noreferrer"
+              className="find-me-card"
+            >
+              <Instagram size={18} className="text-amber-800 shrink-0" />
+              <div>
+                <h3 className="font-bold text-amber-950 text-sm">Instagram</h3>
+                <p className="text-sm text-amber-800">instagram.com/samshatan</p>
+              </div>
+            </a>
+            <a
+              href="https://leetcode.com/u/samshatan"
+              target="_blank"
+              rel="noreferrer"
+              className="find-me-card"
+            >
+              <Code2 size={18} className="text-amber-800 shrink-0" />
+              <div>
+                <h3 className="font-bold text-amber-950 text-sm">LeetCode</h3>
+                <p className="text-sm text-amber-800">leetcode.com/u/samshatan</p>
+              </div>
+            </a>
+            <div className="find-me-card">
+              <Globe size={18} className="text-amber-800 shrink-0" />
+              <div>
+                <h3 className="font-bold text-amber-950 text-sm">Based in</h3>
+                <p className="text-sm text-amber-800">India — UTC+5:30</p>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col gap-1.5">
-            <label className="text-amber-950 font-bold text-sm uppercase tracking-wider">Email</label>
-            <input 
-              type="email" 
-              className="bg-[#f8f1e3] border-2 border-amber-300/50 rounded-md p-2.5 text-amber-950 focus:outline-none focus:border-amber-500 transition-colors shadow-inner" 
-              placeholder="you@example.com" 
-            />
-          </div>
-          <div className="flex flex-col gap-1.5">
-            <label className="text-amber-950 font-bold text-sm uppercase tracking-wider">Message</label>
-            <textarea 
-              className="bg-[#f8f1e3] border-2 border-amber-300/50 rounded-md p-2.5 text-amber-950 focus:outline-none focus:border-amber-500 transition-colors min-h-[120px] shadow-inner resize-y" 
-              placeholder="Tell me a little about your idea..."
-            ></textarea>
-          </div>
-          <button 
-            type="submit" 
-            className="mt-2 bg-gradient-to-b from-amber-800 to-amber-950 text-[#f4efe6] fantasy-font text-lg py-3 rounded-md hover:from-amber-700 hover:to-amber-900 transition-all border border-amber-950 shadow-md active:scale-95 cursor-pointer"
-          >
-            Send Message
-          </button>
-        </form>
-      </OrnateWrapper>
+        </BannerPanel>
+      </div>
     </motion.div>
   );
 }

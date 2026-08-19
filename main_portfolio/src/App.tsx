@@ -12,7 +12,8 @@ import { Projects } from './pages/Projects';
 import { Achievements } from './pages/Achievements';
 import { Contact } from './pages/Contact';
 import { Sidebar } from './components/Sidebar';
-import { Github, Linkedin, Mail, Moon, Sun, Sparkles } from 'lucide-react';
+import { SocialBar } from './components/SocialBar';
+import { Moon, Sun, Sparkles } from 'lucide-react';
 
 export default function App() {
   const [activePage, setActivePage] = useState('Home');
@@ -27,7 +28,7 @@ export default function App() {
   }, [isNight]);
 
   const navItems = ['Home', 'Story', 'Experience', 'Inventory', 'Projects', 'Achievements', 'Contact'];
-  const usesSidebar = ['Home', 'Story', 'Inventory', 'Contact'].includes(activePage);
+  const usesSidebar = ['Home', 'Story', 'Inventory'].includes(activePage);
   const sidebarMode = activePage === 'Inventory' ? 'stats' : 'full';
 
   const renderContent = () => {
@@ -88,33 +89,7 @@ export default function App() {
           </div>
 
           <footer className="mt-12 flex flex-col items-center gap-4 border-t border-amber-200/50 pt-6">
-            <div className="flex gap-3">
-              <a
-                className="w-9 h-9 rounded-full bg-amber-950 text-amber-50 flex items-center justify-center hover:scale-110 transition-transform shadow-sm"
-                href="https://github.com/samshatan"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
-              >
-                <Github size={16} />
-              </a>
-              <a
-                className="w-9 h-9 rounded-full bg-[#0a66c2] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-sm"
-                href="https://www.linkedin.com/in/samshatan/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={16} />
-              </a>
-              <a
-                className="w-9 h-9 rounded-full bg-amber-700 text-white flex items-center justify-center hover:scale-110 transition-transform shadow-sm"
-                href="mailto:sameermaurya97044@gmail.com"
-                aria-label="Email"
-              >
-                <Mail size={16} />
-              </a>
-            </div>
+            <SocialBar />
             <p className="text-xs text-amber-800">© 2024 Sameer Maurya. Crafted with Code & Comfort.</p>
           </footer>
         </div>
