@@ -1,0 +1,6 @@
+{
+  "name": "About Me Story",
+  "description": "A fantasy RPG styled about me page with inventory and skills.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
