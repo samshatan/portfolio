@@ -1,3 +1,5 @@
+import { publicUrl } from '../lib/publicUrl';
+
 export const projects = [
   {
     title: "Find-Movie",
@@ -9,7 +11,7 @@ export const projects = [
       "Interface shaped around one clear task instead of extra chrome",
     ],
     tech: ["React", "JavaScript", "HTML", "CSS"],
-    image: "/projects/findmovie.jpg",
+    image: publicUrl("projects/findmovie.jpg"),
   },
   {
     title: "E-commerce Platform",
@@ -21,7 +23,7 @@ export const projects = [
       "Practiced turning a store idea into a working application",
     ],
     tech: ["React", "TypeScript", "Node.js", "Express", "MongoDB"],
-    image: "/projects/ecommerce.jpg",
+    image: publicUrl("projects/ecommerce.jpg"),
   },
   {
     title: "Birthday Wisher",
@@ -33,7 +35,7 @@ export const projects = [
       "Turned a small idea into a complete, polished page",
     ],
     tech: ["React", "TypeScript", "Tailwind CSS", "Shadcn UI"],
-    image: "/projects/birthday.jpg",
+    image: publicUrl("projects/birthday.jpg"),
   },
   {
     title: "Todo List",
@@ -45,6 +47,6 @@ export const projects = [
       "Practice shipping a complete utility instead of a fragment",
     ],
     tech: ["React", "TypeScript", "Tailwind CSS", "Shadcn UI"],
-    image: "/projects/todo.jpg",
+    image: publicUrl("projects/todo.jpg"),
   },
 ];

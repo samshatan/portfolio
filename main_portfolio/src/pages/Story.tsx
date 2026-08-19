@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { BannerPanel } from '../components/BannerPanel';
+import { publicUrl } from '../lib/publicUrl';
 
 export function Story() {
   return (
@@ -18,7 +19,7 @@ export function Story() {
         <img
           alt="Illustrated owl with glasses beside a shelf of books and a steaming mug"
           className="w-full max-w-[220px] h-auto drop-shadow-md shrink-0"
-          src="/owl-shelf.png"
+          src={publicUrl('owl-shelf.png')}
         />
 
         <BannerPanel title="Chapter 1" className="flex-1 w-full">

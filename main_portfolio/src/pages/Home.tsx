@@ -3,6 +3,7 @@ import type { FormEvent } from 'react';
 import { motion } from 'motion/react';
 import { BannerPanel } from '../components/BannerPanel';
 import { Send, Sparkles } from 'lucide-react';
+import { publicUrl } from '../lib/publicUrl';
 
 const contents = [
   {
@@ -78,7 +79,7 @@ export function Home({ onNavigate }: { onNavigate: (page: string) => void }) {
         <img
           alt="Illustrated owl with glasses beside a shelf of books and a steaming mug"
           className="w-full max-w-[220px] h-auto drop-shadow-md shrink-0"
-          src="/owl-shelf.png"
+          src={publicUrl('owl-shelf.png')}
         />
 
         <BannerPanel title="Prologue" className="flex-1 w-full">
