@@ -13,6 +13,7 @@ import { Achievements } from './pages/Achievements';
 import { Contact } from './pages/Contact';
 import { Sidebar } from './components/Sidebar';
 import { SocialBar } from './components/SocialBar';
+import { ChapterProgress } from './components/ChapterProgress';
 import { Moon, Sun, Sparkles } from 'lucide-react';
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
   }, [isNight]);
 
   const navItems = ['Home', 'Story', 'Experience', 'Inventory', 'Projects', 'Achievements', 'Contact'];
+  const chapterIndex = Math.max(1, navItems.indexOf(activePage) + 1);
   const usesSidebar = ['Home', 'Story', 'Inventory'].includes(activePage);
   const sidebarMode = activePage === 'Inventory' ? 'stats' : 'full';
 
@@ -64,21 +66,19 @@ export default function App() {
         </button>
 
         <div className="content-wrapper">
-          <nav className="site-nav flex justify-center gap-2 md:gap-4 mb-10 fantasy-font text-sm md:text-base lg:text-lg flex-wrap">
+          <nav className="site-nav flex justify-center items-center gap-x-3 md:gap-x-5 gap-y-2 mb-5 text-lg md:text-xl flex-wrap">
             {navItems.map(item => (
               <button
                 key={item}
                 onClick={() => setActivePage(item)}
-                className={`transition-all px-4 py-1.5 rounded-full ${
-                  activePage === item
-                    ? 'text-amber-900 bg-amber-200/60 shadow-sm border border-amber-300 scale-105 font-bold'
-                    : 'hover:text-amber-800 hover:bg-amber-100/30'
-                }`}
+                className={`nav-link ${activePage === item ? 'nav-link-active' : ''}`}
               >
                 {item}
               </button>
             ))}
           </nav>
+
+          <ChapterProgress current={chapterIndex} total={6} label={activePage} />
 
           <div className={`page-stage grid grid-cols-1 gap-8 lg:gap-10 ${usesSidebar ? 'lg:grid-cols-12' : ''}`}>
             <div key={activePage} className={`${usesSidebar ? 'lg:col-span-8' : ''} animate-fade-in`}>

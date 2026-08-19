@@ -94,6 +94,82 @@ h1, h2, h3, .fantasy-font {
 .site-nav {
   min-height: 3rem;
   align-content: center;
+  font-family: 'Fondamento', Georgia, serif;
+  font-weight: 400;
+  color: #4e3b31;
+}
+
+.nav-link {
+  background: transparent;
+  border: none;
+  color: #4e3b31;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+  background: rgba(237, 219, 199, 0.45);
+}
+
+.nav-link-active,
+.nav-link-active:hover {
+  background: #eddbc7;
+  color: #4e3b31;
+}
+
+.chapter-progress {
+  width: min(36rem, 78%);
+  margin: 0 auto 2.25rem;
+}
+
+.chapter-progress-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: #8a6a48;
+  margin-bottom: 0.45rem;
+  font-family: 'Gentium Book Plus', Georgia, serif;
+}
+
+.chapter-track {
+  display: flex;
+  align-items: center;
+}
+
+.chapter-track-step {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.chapter-track-step:last-child {
+  flex: 0 0 auto;
+}
+
+.chapter-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #d8c4a8;
+  flex-shrink: 0;
+}
+
+.chapter-dot.is-filled {
+  background: #b8895a;
+}
+
+.chapter-rail {
+  height: 2px;
+  flex: 1;
+  background: #e6d5bc;
+}
+
+.chapter-rail.is-filled {
+  background: #c4a07a;
 }
 
 .page-stage {
@@ -421,6 +497,41 @@ html.night-mode .border-amber-200\/50,
 html.night-mode .border-amber-300\/50 { border-color: rgba(92, 71, 51, 0.5) !important; }
 
 /* Toggle Button */
+html.night-mode .site-nav,
+html.night-mode .nav-link {
+  color: #f5d0a9;
+}
+
+html.night-mode .nav-link:hover {
+  background: rgba(92, 71, 51, 0.45);
+}
+
+html.night-mode .nav-link-active,
+html.night-mode .nav-link-active:hover {
+  background: #3d3024;
+  color: #f5d0a9;
+}
+
+html.night-mode .chapter-progress-meta {
+  color: #c49a6c;
+}
+
+html.night-mode .chapter-dot {
+  background: #3d3024;
+}
+
+html.night-mode .chapter-dot.is-filled {
+  background: #c49a6c;
+}
+
+html.night-mode .chapter-rail {
+  background: #3d3024;
+}
+
+html.night-mode .chapter-rail.is-filled {
+  background: #7a5c40;
+}
+
 html.night-mode .day-night-toggle {
   background-color: #241c17 !important;
   border-color: #5c4733 !important;
