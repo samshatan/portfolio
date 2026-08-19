@@ -12,7 +12,7 @@ import { Projects } from './pages/Projects';
 import { Achievements } from './pages/Achievements';
 import { Contact } from './pages/Contact';
 import { Sidebar } from './components/Sidebar';
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sun, Sparkles } from 'lucide-react';
 
 export default function App() {
   const [activePage, setActivePage] = useState('Home');
@@ -27,6 +27,7 @@ export default function App() {
   }, [isNight]);
 
   const navItems = ['Home', 'Story', 'Experience', 'Inventory', 'Projects', 'Achievements', 'Contact'];
+  const usesSidebar = ['Home', 'Story', 'Contact'].includes(activePage);
 
   const renderContent = () => {
     switch (activePage) {
@@ -43,6 +44,8 @@ export default function App() {
 
   return (
     <main className="parchment-container">
+      <div className="page-sticker sticker-top-left" aria-hidden="true"><Sparkles size={24} /></div>
+      <div className="page-sticker sticker-bottom-right" aria-hidden="true">✦</div>
       {/* Day/Night Toggle */}
       <button 
         onClick={() => setIsNight(!isNight)}
@@ -54,7 +57,7 @@ export default function App() {
 
       <div className="content-wrapper">
         {/* Navigation */}
-        <nav className="flex justify-center gap-2 md:gap-4 mb-12 fantasy-font text-sm md:text-base lg:text-lg flex-wrap">
+        <nav className="site-nav flex justify-center gap-2 md:gap-4 mb-12 fantasy-font text-sm md:text-base lg:text-lg flex-wrap">
           {navItems.map(item => (
             <button
               key={item}
@@ -70,15 +73,16 @@ export default function App() {
           ))}
         </nav>
 
-        <div className={`grid grid-cols-1 ${['Home', 'Story', 'Contact'].includes(activePage) ? 'lg:grid-cols-12' : ''} gap-8`}>
+        <div className="page-stage grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Main Content Area (Dynamic) */}
-          <div key={activePage} className={`${['Home', 'Story', 'Contact'].includes(activePage) ? 'lg:col-span-8' : 'w-full max-w-5xl mx-auto'} animate-fade-in`}>
+          <div key={activePage} className="lg:col-span-8 animate-fade-in">
             {renderContent()}
           </div>
 
-          {/* Right Sidebar Area (Conditional) */}
-          {['Home', 'Story', 'Contact'].includes(activePage) && (
+          {usesSidebar ? (
             <Sidebar />
+          ) : (
+            <div className="hidden lg:block lg:col-span-4" aria-hidden="true" />
           )}
         </div>
 
