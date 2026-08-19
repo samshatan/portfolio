@@ -78,16 +78,12 @@ export default function App() {
             ))}
           </nav>
 
-          <div className="page-stage grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
-            <div key={activePage} className="lg:col-span-8 animate-fade-in">
+          <div className={`page-stage grid grid-cols-1 gap-8 lg:gap-10 ${usesSidebar ? 'lg:grid-cols-12' : ''}`}>
+            <div key={activePage} className={`${usesSidebar ? 'lg:col-span-8' : ''} animate-fade-in`}>
               {renderContent()}
             </div>
 
-            {usesSidebar ? (
-              <Sidebar />
-            ) : (
-              <div className="hidden lg:block lg:col-span-4" aria-hidden="true" />
-            )}
+            {usesSidebar && <Sidebar />}
           </div>
 
           <footer className="mt-12 flex flex-col items-center gap-4 border-t border-amber-200/50 pt-6">

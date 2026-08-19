@@ -1,62 +1,110 @@
 import { motion } from 'motion/react';
-import { OrnateWrapper } from '../components/OrnateWrapper';
+import { BannerPanel } from '../components/BannerPanel';
+import { ChapterProgress } from '../components/ChapterProgress';
 
-const focusAreas = [
+const quests = [
   {
-    role: "Interface Craft",
-    guild: "React and TypeScript",
-    timeline: "Core focus",
-    details: "I use React and TypeScript to shape reusable components and interactive web experiences with clear structure and dependable behavior."
+    chapter: 3,
+    role: "Find-Movie",
+    guild: "React and JavaScript",
+    timeline: "Shipped quest",
+    details: "A movie discovery interface for searching and browsing films through a focused, easy-to-use layout.",
+    highlights: [
+      "Search-first browsing so finding a film stays quick",
+      "Clean page structure in React, JavaScript, HTML, and CSS",
+      "Interface shaped around one clear task instead of extra chrome",
+    ],
+    image: "/projects/findmovie.jpg",
   },
   {
-    role: "Visual Systems",
-    guild: "Tailwind CSS and Shadcn UI",
-    timeline: "Working toolkit",
-    details: "I care about responsive layouts, accessible structure, and visual consistency, using utility styling and component systems to move from idea to interface quickly."
+    chapter: 4,
+    role: "E-commerce Platform",
+    guild: "React, TypeScript, and Node.js",
+    timeline: "Full-stack quest",
+    details: "A full-stack shopping experience with authentication, product browsing, and payment-oriented application flows.",
+    highlights: [
+      "Connected a React front end to Express and MongoDB",
+      "Authentication and catalog flows that stay readable end to end",
+      "Practiced turning a store idea into a working application",
+    ],
+    image: "/projects/ecommerce.jpg",
   },
   {
-    role: "Problem Solving",
-    guild: "Competitive programming",
-    timeline: "Always learning",
-    details: "I enjoy breaking down problems, learning new technologies, and improving an idea through small, deliberate iterations."
-  }
+    chapter: 5,
+    role: "Birthday Wisher",
+    guild: "React, TypeScript, and Shadcn UI",
+    timeline: "Interface quest",
+    details: "A shareable birthday greeting experience designed to make sending a personal wish feel simple and memorable.",
+    highlights: [
+      "Built a focused greeting flow with Tailwind CSS and Shadcn UI",
+      "Kept the layout warm, readable, and easy to share by link",
+      "Turned a small idea into a complete, polished page",
+    ],
+    image: "/projects/birthday.jpg",
+  },
+  {
+    chapter: 6,
+    role: "Todo List",
+    guild: "React, TypeScript, and Tailwind CSS",
+    timeline: "Daily-tool quest",
+    details: "A straightforward task manager for capturing daily work, organizing priorities, and keeping progress visible.",
+    highlights: [
+      "Simple capture and organize flow for everyday tasks",
+      "Reusable components with a consistent visual system",
+      "Practice shipping a complete utility instead of a fragment",
+    ],
+    image: "/projects/todo.jpg",
+  },
 ];
 
 export function Experience() {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="flex flex-col gap-6"
+      className="flex flex-col gap-8"
     >
-      <header className="text-center mb-6">
-        <h1 className="text-4xl mb-2 text-amber-950 fantasy-font">Coding Experience</h1>
-        <p className="text-amber-800 italic">The skills, tools, and problem-solving practice behind my work.</p>
+      <ChapterProgress current={3} total={7} label="Experience" />
+
+      <header className="text-center">
+        <h1 className="text-4xl md:text-5xl mb-2 text-amber-950 fantasy-font">Experience</h1>
+        <p className="text-amber-800 italic">
+          Quests completed, roles filled, and lessons earned along the way.
+        </p>
       </header>
 
-      <div className="flex flex-col gap-6 relative">
-        {/* Timeline line */}
-        <div className="absolute left-[27px] top-4 bottom-4 w-0.5 bg-amber-300 hidden md:block"></div>
-
-        {focusAreas.map((exp, idx) => (
-          <div key={idx} className="relative flex flex-col md:flex-row gap-6 items-start">
-            <div className="hidden md:flex shrink-0 w-14 h-14 bg-[#f8f1e3] border-2 border-amber-400 rounded-full items-center justify-center z-10 shadow-md">
-              <span className="fantasy-font text-amber-900 font-bold text-lg">{idx + 1}</span>
-            </div>
-            <OrnateWrapper className="p-6 bg-amber-50/70 w-full hover:-translate-y-1 transition-transform">
-              <div className="flex flex-col md:flex-row justify-between md:items-center border-b border-amber-200/50 pb-3 mb-3 gap-2">
-                <div>
-                  <h3 className="fantasy-font text-2xl text-amber-950 font-bold">{exp.role}</h3>
-                  <h4 className="text-amber-800 font-semibold">{exp.guild}</h4>
+      <div className="flex flex-col gap-8">
+        {quests.map((quest) => (
+          <BannerPanel key={quest.chapter} title={`Chapter ${quest.chapter}`}>
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 items-center">
+              <div className="lg:col-span-3">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
+                  <div>
+                    <h3 className="fantasy-font text-2xl text-amber-950">{quest.role}</h3>
+                    <h4 className="text-amber-800">{quest.guild}</h4>
+                  </div>
+                  <span className="text-sm text-amber-800/80 whitespace-nowrap">{quest.timeline}</span>
                 </div>
-                <span className="text-sm bg-amber-200/50 text-amber-900 px-3 py-1 rounded-full border border-amber-300 whitespace-nowrap self-start md:self-auto">
-                  {exp.timeline}
-                </span>
+                <p className="text-gray-800 text-sm leading-relaxed mb-4">{quest.details}</p>
+                <ul className="space-y-2 text-sm text-amber-950">
+                  {quest.highlights.map((item) => (
+                    <li key={item} className="flex gap-2">
+                      <span className="quest-bullet mt-1.5 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <p className="text-gray-800 text-sm leading-relaxed">{exp.details}</p>
-            </OrnateWrapper>
-          </div>
+              <div className="lg:col-span-2">
+                <img
+                  src={quest.image}
+                  alt={`${quest.role} screenshot`}
+                  className="quest-shot"
+                />
+              </div>
+            </div>
+          </BannerPanel>
         ))}
       </div>
     </motion.div>

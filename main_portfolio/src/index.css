@@ -133,6 +133,50 @@ h1, h2, h3, .fantasy-font {
   width: 100%;
 }
 
+.chapter-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #e8dcc4;
+  border: 1px solid #c2ad8b;
+  flex-shrink: 0;
+}
+
+.chapter-dot-filled {
+  background: #b8895a;
+  border-color: #8f6840;
+}
+
+.chapter-line {
+  height: 2px;
+  flex: 1;
+  background: #e8dcc4;
+}
+
+.chapter-line-filled,
+.chapter-line-partial {
+  background: #b8895a;
+}
+
+.quest-bullet {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #a86f3d;
+  display: inline-block;
+}
+
+.quest-shot {
+  width: 100%;
+  height: auto;
+  max-height: 240px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 18px;
+  border: 1px solid #d8c6a6;
+  box-shadow: 0 8px 18px rgba(90, 60, 30, 0.12), inset 0 0 0 4px rgba(253, 250, 242, 0.7);
+}
+
 .page-sticker {
   position: absolute;
   z-index: 2;
@@ -374,6 +418,30 @@ html.night-mode .banner-body {
 html.night-mode .toc-card {
   background: #2a221b;
   border-color: #3d3024;
+}
+
+html.night-mode .chapter-dot {
+  background: #2a221b;
+  border-color: #5c4733;
+}
+
+html.night-mode .chapter-dot-filled {
+  background: #c49a6c;
+  border-color: #f5d0a9;
+}
+
+html.night-mode .chapter-line {
+  background: #3d3024;
+}
+
+html.night-mode .chapter-line-filled,
+html.night-mode .chapter-line-partial {
+  background: #c49a6c;
+}
+
+html.night-mode .quest-shot {
+  border-color: #5c4733;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4), inset 0 0 0 4px rgba(26, 21, 17, 0.5);
 }
 
 html.night-mode .gutter-art {
