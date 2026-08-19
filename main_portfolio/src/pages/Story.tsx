@@ -11,30 +11,30 @@ export function Story() {
       className="flex flex-col gap-10"
     >
       <header className="text-center mb-4">
-        <h1 className="text-5xl mb-2 text-amber-950 fantasy-font">About Sameer</h1>
-        <p className="text-lg italic text-amber-800">A practical path through code and design</p>
+        <h1 className="text-5xl mb-2 text-amber-950 fantasy-font">About Me</h1>
+        <p className="text-lg italic text-amber-800">A Story of Code, Cosmogony, and Comfort</p>
       </header>
 
       <div className="flex justify-center mb-8">
         <img 
-          alt="Owl and books illustration" 
+          alt="Illustrated owl with glasses beside a shelf of books and a steaming mug"
           className="max-w-full h-auto drop-shadow-md hover:-translate-y-1 transition-transform" 
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQL_RF60BubmhzO1oGAFoEXLUZHamEUif6agsFwiFEseu9E9uiHy-FxJ1AEkSkGnyqjUjc7RoHUCjrz6Kr92qnAPEJnPAthoo6hT2u7pVs5UyB5Vc41fY-091FSRIIVVcTRaNyngYbhafP6kqYI6srtZorMkiJA1dXLnvcZlPoC6N7pBg9TDC_bc_-1Lxm5QduD0IijpKkUxA5zPfSk6nILPYQf8DwHwehZMAmtGDFIwlu3blDLgKw"
+          src="/owl-shelf.png"
         />
       </div>
 
       <div className="relative flex flex-col items-center">
-        <Ribbon>Level 1</Ribbon>
+        <Ribbon>Chapter 1</Ribbon>
         <OrnateWrapper className="mt-4 p-8">
-          <h2 className="text-2xl mb-4 text-amber-950 fantasy-font">The Terminal Awakening</h2>
+          <h2 className="text-2xl mb-4 text-amber-950 fantasy-font">The Beginning: A Spark of Curiosity</h2>
           <p className="leading-relaxed text-gray-800 text-sm">
-            I am Sameer Maurya, a web developer who enjoys building modern applications and learning how the pieces of the web fit together. My interests sit at the intersection of front-end development, visual design, and problem solving.
+            My earliest encounters with technology happened on a hand-me-down desktop tucked into the corner of the living room. Games came first, then curiosity about how they were made, and soon I was pulling apart every menu and config file I could find. That itch to look behind the curtain never left; it just grew into a habit of building small things, breaking them, and learning what made them tick.
           </p>
         </OrnateWrapper>
       </div>
 
       <div className="relative flex flex-col items-center mt-4">
-        <Ribbon>Level 10</Ribbon>
+        <Ribbon>Chapter 2</Ribbon>
         <OrnateWrapper className="mt-4 flex flex-col md:flex-row items-center justify-between gap-6 p-8">
           <div className="w-full md:w-1/4 flex justify-center">
             <img 
@@ -44,7 +44,7 @@ export function Story() {
             />
           </div>
           <div className="w-full md:w-2/4">
-            <h2 className="text-xl mb-3 text-amber-950 fantasy-font">The Full-Stack Dungeon</h2>
+            <h2 className="text-xl mb-3 text-amber-950 fantasy-font">Tech Quest: The Coding Odyssey</h2>
             <p className="leading-relaxed text-gray-800 text-sm">
               My current toolkit includes React, TypeScript, Tailwind CSS, JavaScript, HTML, CSS, and Shadcn UI, with additional experience exploring Node.js, Express, MongoDB, Java, Python, Git, npm, and Photoshop. I learn best by turning ideas into working projects and refining them as I go.
             </p>

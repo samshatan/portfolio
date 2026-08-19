@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fondamento&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
 
 body {
   background-color: #f4efe6;
-  font-family: 'Lora', serif;
+  font-family: 'Gentium Book Plus', Georgia, serif;
   color: #3e3222;
   display: flex;
   justify-content: center;
@@ -28,7 +28,7 @@ body::before {
 }
 
 h1, h2, h3, .fantasy-font {
-  font-family: 'Cinzel', serif;
+  font-family: 'Fondamento', Georgia, serif;
   font-weight: 700;
 }
 
