@@ -78,7 +78,7 @@ export default function App() {
             ))}
           </nav>
 
-          <ChapterProgress current={chapterIndex} total={6} label={activePage} />
+          <ChapterProgress current={chapterIndex} total={navItems.length} label={activePage} />
 
           <div className={`page-stage grid grid-cols-1 gap-8 lg:gap-10 ${usesSidebar ? 'lg:grid-cols-12' : ''}`}>
             <div key={activePage} className={`${usesSidebar ? 'lg:col-span-8' : ''} animate-fade-in`}>
