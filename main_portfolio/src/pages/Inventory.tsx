@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { OrnateWrapper } from '../components/OrnateWrapper';
+import { BannerPanel } from '../components/BannerPanel';
+import { ChapterProgress } from '../components/ChapterProgress';
 import { inventoryItems } from '../data/inventory';
 import { Search, Sparkles } from 'lucide-react';
 
@@ -10,29 +11,29 @@ const hiddenArtifacts = [
     tagline: "Squeaks reassuringly when your code fails.",
     details: "A legendary artifact that forces you to explain your terrible code out loud until you realize your own mistake. Durability: Infinite.",
     icon: "🦆",
-    rarity: "text-purple-600 border-purple-300 bg-purple-50"
+    rarity: "text-purple-600",
   },
   {
     name: "The Missing Semicolon",
     tagline: "Found on line 42,491.",
     details: "An ancient relic that once caused 14 hours of continuous server downtime in the year 2014. Handle with extreme caution.",
     icon: "❕",
-    rarity: "text-orange-600 border-orange-300 bg-orange-50"
+    rarity: "text-orange-600",
   },
   {
     name: "Stack Overflow Scroll",
     tagline: "Marked as duplicate.",
     details: "A torn page containing the exact error message you are seeing, but the only answer is 'Nvm, fixed it' from 8 years ago.",
     icon: "📜",
-    rarity: "text-gray-600 border-gray-300 bg-gray-50"
+    rarity: "text-gray-600",
   },
   {
     name: "Potion of Caffeine",
     tagline: "+50 Speed, -20 Focus.",
     details: "Brewed by the mystical baristas of the local tavern. Consuming this allows you to write 500 lines of code, none of which will make sense tomorrow.",
     icon: "☕",
-    rarity: "text-blue-600 border-blue-300 bg-blue-50"
-  }
+    rarity: "text-blue-600",
+  },
 ];
 
 export function Inventory() {
@@ -44,7 +45,7 @@ export function Inventory() {
     if (isSearching) return;
     setIsSearching(true);
     setMessage("Searching the dusty corners of the codebase...");
-    
+
     setTimeout(() => {
       const undiscovered = hiddenArtifacts.filter(egg => !discovered.find(d => d.name === egg.name));
       if (undiscovered.length === 0) {
@@ -59,65 +60,62 @@ export function Inventory() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="flex flex-col gap-6 pb-12"
+      className="flex flex-col gap-8 pb-4"
     >
-      <header className="text-center mb-6">
-        <h1 className="text-4xl mb-2 text-amber-950 fantasy-font">Expanded Inventory</h1>
-        <p className="text-amber-800 italic">A detailed inspection of my equipped skills and artifacts.</p>
+      <ChapterProgress current={4} total={7} label="Inventory" />
+
+      <header className="text-center">
+        <h1 className="text-4xl md:text-5xl mb-2 text-amber-950 fantasy-font">Inventory</h1>
+        <p className="text-amber-800 italic">Everything carried in the adventurer's satchel</p>
       </header>
 
-      <div className="grid grid-cols-1 gap-4">
-        {inventoryItems.map((item, idx) => (
-          <OrnateWrapper key={`inv-${idx}`} className="p-4 flex flex-col md:flex-row items-center gap-6 hover:bg-amber-100/30 transition-colors">
-            <div className="bg-gradient-to-b from-[#f8f1e3] to-[#e8dcc4] p-3 rounded-xl border border-[#c2ad8b] shadow-inner shrink-0">
-              <img alt={item.name} src={item.icon} className="w-16 h-16 object-contain drop-shadow-sm" />
-            </div>
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="fantasy-font text-xl text-amber-950 font-bold">{item.name}</h3>
-              <p className="text-sm text-amber-700 mb-2 font-semibold">{item.tagline}</p>
-              <p className="text-sm text-gray-800 leading-relaxed">{item.details}</p>
-            </div>
-          </OrnateWrapper>
-        ))}
-
-        {/* Render Discovered Easter Eggs */}
-        {discovered.map((egg, idx) => (
-          <motion.div 
-            key={`egg-${idx}`}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: "spring" }}
-          >
-            <OrnateWrapper className={`p-4 flex flex-col md:flex-row items-center gap-6 transition-colors shadow-md ${egg.rarity.split(' ')[2]}`}>
-              <div className="bg-white/50 p-3 rounded-xl border shadow-inner shrink-0 w-[90px] h-[90px] flex items-center justify-center text-4xl">
-                {egg.icon}
+      <BannerPanel title="The Satchel">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {inventoryItems.map((item) => (
+            <div key={item.name} className="satchel-card">
+              <img alt="" src={item.icon} className="w-10 h-10 object-contain shrink-0 mt-0.5" />
+              <div>
+                <h3 className="font-bold text-amber-950 text-sm">{item.name}</h3>
+                <p className="text-xs text-amber-800/80 mb-1">{item.tagline}</p>
+                <p className="text-sm text-gray-800 leading-relaxed">{item.details}</p>
               </div>
-              <div className="flex-1 text-center md:text-left">
-                <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                  <Sparkles className={egg.rarity.split(' ')[0]} size={16} />
-                  <h3 className={`fantasy-font text-xl font-bold ${egg.rarity.split(' ')[0]}`}>{egg.name}</h3>
+            </div>
+          ))}
+
+          {discovered.map((egg) => (
+            <motion.div
+              key={egg.name}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ type: "spring" }}
+              className="satchel-card"
+            >
+              <span className="text-3xl shrink-0">{egg.icon}</span>
+              <div>
+                <div className="flex items-center gap-2 mb-0.5">
+                  <Sparkles className={egg.rarity} size={14} />
+                  <h3 className={`font-bold text-sm ${egg.rarity}`}>{egg.name}</h3>
                 </div>
-                <p className={`text-sm mb-2 font-semibold ${egg.rarity.split(' ')[0]}`}>{egg.tagline}</p>
+                <p className={`text-xs mb-1 ${egg.rarity}`}>{egg.tagline}</p>
                 <p className="text-sm text-gray-800 leading-relaxed">{egg.details}</p>
               </div>
-            </OrnateWrapper>
-          </motion.div>
-        ))}
-      </div>
+            </motion.div>
+          ))}
+        </div>
+      </BannerPanel>
 
-      {/* Random Encounter Action Zone */}
-      <div className="mt-8 flex flex-col items-center gap-4 bg-amber-100/40 p-8 rounded-xl border border-amber-300/50 shadow-inner">
+      <div className="flex flex-col items-center gap-4 toc-card p-6">
         <p className="text-amber-900 italic text-center text-sm md:text-base">
           {message || "You sense hidden artifacts scattered in the directory..."}
         </p>
-        <button 
+        <button
           onClick={handleEncounter}
           disabled={isSearching}
-          className={`flex items-center gap-2 bg-gradient-to-b from-amber-700 to-amber-900 text-[#f4efe6] fantasy-font text-lg px-8 py-3 rounded-md transition-all border border-amber-950 shadow-md ${isSearching ? 'opacity-70 cursor-not-allowed' : 'hover:from-amber-600 hover:to-amber-800 active:scale-95 cursor-pointer'}`}
+          className={`flex items-center gap-2 bg-gradient-to-b from-amber-700 to-amber-900 text-[#f4efe6] fantasy-font text-lg px-8 py-3 rounded-full transition-all border border-amber-950 shadow-md ${isSearching ? 'opacity-70 cursor-not-allowed' : 'hover:from-amber-600 hover:to-amber-800 active:scale-95 cursor-pointer'}`}
         >
           <Search size={20} className={isSearching ? "animate-pulse" : ""} />
           {isSearching ? "Searching..." : "Roll for Random Encounter"}

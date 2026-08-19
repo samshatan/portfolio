@@ -27,7 +27,8 @@ export default function App() {
   }, [isNight]);
 
   const navItems = ['Home', 'Story', 'Experience', 'Inventory', 'Projects', 'Achievements', 'Contact'];
-  const usesSidebar = ['Home', 'Story', 'Contact'].includes(activePage);
+  const usesSidebar = ['Home', 'Story', 'Inventory', 'Contact'].includes(activePage);
+  const sidebarMode = activePage === 'Inventory' ? 'stats' : 'full';
 
   const renderContent = () => {
     switch (activePage) {
@@ -83,7 +84,7 @@ export default function App() {
               {renderContent()}
             </div>
 
-            {usesSidebar && <Sidebar />}
+            {usesSidebar && <Sidebar mode={sidebarMode} />}
           </div>
 
           <footer className="mt-12 flex flex-col items-center gap-4 border-t border-amber-200/50 pt-6">

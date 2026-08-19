@@ -177,6 +177,17 @@ h1, h2, h3, .fantasy-font {
   box-shadow: 0 8px 18px rgba(90, 60, 30, 0.12), inset 0 0 0 4px rgba(253, 250, 242, 0.7);
 }
 
+.satchel-card {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  background: #efe3cc;
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  border: 1px solid #e2d2b6;
+  text-align: left;
+}
+
 .page-sticker {
   position: absolute;
   z-index: 2;
@@ -442,6 +453,11 @@ html.night-mode .chapter-line-partial {
 html.night-mode .quest-shot {
   border-color: #5c4733;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4), inset 0 0 0 4px rgba(26, 21, 17, 0.5);
+}
+
+html.night-mode .satchel-card {
+  background: #2a221b;
+  border-color: #3d3024;
 }
 
 html.night-mode .gutter-art {

@@ -2,22 +2,24 @@ import { inventoryItems } from '../data/inventory';
 import { characterStats } from '../data/character';
 import { BannerPanel } from './BannerPanel';
 
-export function Sidebar() {
+export function Sidebar({ mode = 'full' }: { mode?: 'full' | 'stats' }) {
   return (
     <aside className="lg:col-span-4 flex flex-col gap-6">
-      <BannerPanel title="Inventory & Skills">
-        <div className="flex flex-col">
-          {inventoryItems.map((item, idx) => (
-            <div key={idx} className="inventory-item group cursor-default">
-              <img alt={item.name} className="inventory-icon group-hover:scale-110 transition-transform drop-shadow-sm" src={item.icon}/>
-              <div>
-                <h4 className="font-bold text-amber-950 text-sm">{item.name}</h4>
-                <p className="text-xs text-amber-800">{item.tagline}</p>
+      {mode === 'full' && (
+        <BannerPanel title="Inventory & Skills">
+          <div className="flex flex-col">
+            {inventoryItems.map((item, idx) => (
+              <div key={idx} className="inventory-item group cursor-default">
+                <img alt={item.name} className="inventory-icon group-hover:scale-110 transition-transform drop-shadow-sm" src={item.icon}/>
+                <div>
+                  <h4 className="font-bold text-amber-950 text-sm">{item.name}</h4>
+                  <p className="text-xs text-amber-800">{item.tagline}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </BannerPanel>
+            ))}
+          </div>
+        </BannerPanel>
+      )}
 
       <BannerPanel title="Cozy Corner Stats">
         <div className="mb-4">
