@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { BannerPanel } from '../components/BannerPanel';
-import { ChapterProgress } from '../components/ChapterProgress';
 import { inventoryItems } from '../data/inventory';
 import { Search, Sparkles } from 'lucide-react';
 
@@ -66,8 +65,6 @@ export function Inventory() {
       transition={{ duration: 0.4 }}
       className="flex flex-col gap-8 pb-4"
     >
-      <ChapterProgress current={4} total={7} label="Inventory" />
-
       <header className="text-center">
         <h1 className="text-4xl md:text-5xl mb-2 text-amber-950 fantasy-font">Inventory</h1>
         <p className="text-amber-800 italic">Everything carried in the adventurer's satchel</p>
