@@ -514,7 +514,9 @@ html.night-mode .text-gray-600,
 html.night-mode .text-purple-600,
 html.night-mode .text-orange-600,
 html.night-mode .text-blue-600 { color: #d6cbbd !important; }
-html.night-mode .text-amber-800\/80 { color: #c49a6c !important; }
+html.night-mode .text-amber-800\/80 { color: #d4b08a !important; }
+html.night-mode .text-amber-900\/80 { color: #ead2b4 !important; }
+html.night-mode .text-amber-800\/70 { color: #d4b08a !important; }
 
 /* Background Colors */
 html.night-mode .bg-amber-50\/50, 
@@ -605,6 +607,12 @@ html.night-mode .banner-body {
 html.night-mode .toc-card {
   background: #2a221b;
   border-color: #3d3024;
+}
+
+html.night-mode .toc-card p,
+html.night-mode .satchel-card p,
+html.night-mode .inventory-item p {
+  color: #ead2b4 !important;
 }
 
 html.night-mode .project-feature {
