@@ -77,7 +77,7 @@ export const projects = [
       "Available online at officialparcel.com",
     ],
     tech: ["React", "TypeScript"],
-    image: publicUrl("projects/officialparcel.jpg"),
+    image: publicUrl("projects/parcel.jpg"),
     url: "https://www.officialparcel.com",
   },
   {
@@ -90,7 +90,7 @@ export const projects = [
       "Created a consistent experience across web and mobile platforms",
     ],
     tech: ["React", "TypeScript", "Mobile Application"],
-    image: publicUrl("projects/brickourhouse.jpg"),
+    image: publicUrl("projects/brick.jpg"),
     url: "https://www.brickourhouse.com",
   }
 ];
