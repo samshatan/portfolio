@@ -90,7 +90,7 @@ export default function App() {
 
           <footer className="mt-12 flex flex-col items-center gap-4 border-t border-amber-200/50 pt-6">
             <SocialBar />
-            <p className="text-xs text-amber-800">© 2024 Sameer Maurya. Crafted with Code & Comfort.</p>
+            <p className="text-xs text-amber-800">© 2026 Sameer Maurya. Crafted with Code & Comfort.</p>
           </footer>
         </div>
       </main>

@@ -42,7 +42,7 @@ export function Story() {
           <div className="w-full md:w-2/4 text-center md:text-left">
             <h2 className="text-xl md:text-2xl mb-3 text-amber-950 fantasy-font">Tech Quest: The Coding Odyssey</h2>
             <p className="leading-relaxed text-gray-800 text-sm md:text-base">
-              My current toolkit includes React, TypeScript, Tailwind CSS, JavaScript, HTML, CSS, and Shadcn UI, with additional experience exploring Node.js, Express, MongoDB, Java, Python, Git, npm, and Photoshop. I learn best by turning ideas into working projects and refining them as I go.
+              My current toolkit includes React, TypeScript, Tailwind CSS, JavaScript, HTML, CSS, Python and Java, with additional experience exploring Node.js, Express, MongoDB, Git, npm and Docker. I learn best by turning ideas into working projects and refining them as I go.
             </p>
           </div>
           <div className="w-full md:w-1/4 flex justify-center">

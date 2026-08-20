@@ -80,7 +80,7 @@ export function Contact() {
               </div>
             </a>
             <a
-              href="https://www.linkedin.com/in/samshatan/"
+              href="https://www.linkedin.com/in/samshatan"
               target="_blank"
               rel="noreferrer"
               className="find-me-card"

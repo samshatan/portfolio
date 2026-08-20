@@ -3,12 +3,13 @@ import { BannerPanel } from '../components/BannerPanel';
 
 const entries = [
   {
-    title: "Hackathon Finalist",
+    title: "RIFT Hackathon Finalist (2026) ",
     guild: "Team build under time pressure",
     timeline: "Recent",
     details: "My first real stretch of experience came from reaching the finals of a hackathon. The weekend was short, the problem was open, and the work had to ship — design, build, and present with a team before the clock ran out.",
     highlights: [
-      "Reached the finals by turning an idea into a working demo",
+      "Qualifying Multiple Questionaire During Hackathon",
+      "Reached the finals by turning an idea into a working demo in 36 hours",
       "Practiced building quickly with clear roles and a shared goal",
       "Learned how feedback, time limits, and presentation shape a product",
     ],

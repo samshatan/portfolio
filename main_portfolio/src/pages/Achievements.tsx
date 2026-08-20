@@ -2,6 +2,12 @@ import { motion } from 'motion/react';
 import { OrnateWrapper } from '../components/OrnateWrapper';
 
 const strengths = [
+  {
+    title: "Problem Solver",
+    desc: "I enjoy breaking down complex problems and finding practical solutions that work in the real world.",
+    rarity: "Core skill",
+    color: "text-amber-700 border-amber-300 bg-amber-50"
+  },
   { 
     title: "Front-end Builder", 
     desc: "React, JavaScript, TypeScript, HTML, CSS, and Tailwind CSS form the core of my interface work.", 
@@ -16,7 +22,7 @@ const strengths = [
   },
   { 
     title: "Full-stack Curious", 
-    desc: "Alongside front-end work, I explore Node.js, Express, MongoDB, Java, and Python to understand the wider application.", 
+    desc: "Alongside front-end work, I explore Node.js, Express, MongoDB, Spring, and Python to understand the wider application.", 
     rarity: "Growing range",
     color: "text-blue-700 border-blue-300 bg-blue-50"
   },
