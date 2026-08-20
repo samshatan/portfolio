@@ -16,9 +16,13 @@ import { SocialBar } from './components/SocialBar';
 import { ChapterProgress } from './components/ChapterProgress';
 import { Moon, Sun, Sparkles } from 'lucide-react';
 
+const NIGHT_MODE_STORAGE_KEY = 'main-portfolio-night-mode';
+
 export default function App() {
   const [activePage, setActivePage] = useState('Home');
-  const [isNight, setIsNight] = useState(false);
+  const [isNight, setIsNight] = useState(
+    () => localStorage.getItem(NIGHT_MODE_STORAGE_KEY) === 'true'
+  );
 
   useEffect(() => {
     if (isNight) {
@@ -26,6 +30,8 @@ export default function App() {
     } else {
       document.documentElement.classList.remove('night-mode');
     }
+
+    localStorage.setItem(NIGHT_MODE_STORAGE_KEY, String(isNight));
   }, [isNight]);
 
   const navItems = ['Home', 'Story', 'Experience', 'Inventory', 'Projects', 'Achievements', 'Contact'];
