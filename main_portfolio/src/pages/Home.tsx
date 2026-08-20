@@ -93,7 +93,7 @@ export function Home({ onNavigate }: { onNavigate: (page: string) => void }) {
             <button
               type="button"
               onClick={() => onNavigate('Story')}
-              className="px-8 py-2.5 rounded-full bg-[#efe3cc] border border-amber-300/80 text-amber-950 fantasy-font shadow-sm hover:bg-[#e8d8b8] hover:-translate-y-0.5 transition-all"
+              className="storybook-btn fantasy-font"
             >
               Begin the story.
             </button>

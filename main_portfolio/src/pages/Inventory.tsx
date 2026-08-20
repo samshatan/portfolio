@@ -112,7 +112,7 @@ export function Inventory() {
         <button
           onClick={handleEncounter}
           disabled={isSearching}
-          className={`flex items-center gap-2 bg-gradient-to-b from-amber-700 to-amber-900 text-[#f4efe6] fantasy-font text-lg px-8 py-3 rounded-full transition-all border border-amber-950 shadow-md ${isSearching ? 'opacity-70 cursor-not-allowed' : 'hover:from-amber-600 hover:to-amber-800 active:scale-95 cursor-pointer'}`}
+          className={`storybook-btn fantasy-font text-lg ${isSearching ? '' : 'cursor-pointer'}`}
         >
           <Search size={20} className={isSearching ? "animate-pulse" : ""} />
           {isSearching ? "Searching..." : "Roll for Random Encounter"}

@@ -294,6 +294,36 @@ h1, h2, h3, .fantasy-font {
   text-align: left;
 }
 
+.storybook-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 2rem;
+  border-radius: 999px;
+  background: #efe3cc;
+  border: 1px solid rgba(217, 168, 84, 0.8);
+  color: #451a03;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.storybook-btn:hover {
+  background: #e8d8b8;
+  transform: translateY(-2px);
+}
+
+.storybook-btn:focus-visible {
+  outline: 2px solid #c2ad8b;
+  outline-offset: 2px;
+}
+
+.storybook-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .page-sticker {
   position: absolute;
   z-index: 2;
@@ -596,6 +626,31 @@ html.night-mode .social-orb {
 html.night-mode .find-me-card {
   background: #2a221b;
   border-color: #3d3024;
+}
+
+html.night-mode .contact-field {
+  background: #1f1812;
+  border-color: #4a3a29;
+  color: #f5d0a9;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+html.night-mode .contact-field::placeholder {
+  color: #a68463;
+}
+
+html.night-mode .contact-field:focus {
+  border-color: #7a5c40;
+}
+
+html.night-mode .storybook-btn {
+  background: #2a221b;
+  border-color: #5c4733;
+  color: #f5d0a9;
+}
+
+html.night-mode .storybook-btn:hover {
+  background: #352a20;
 }
 
 html.night-mode .gutter-art {
