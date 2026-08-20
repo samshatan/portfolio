@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { BannerPanel } from '../components/BannerPanel';
 import { inventoryItems } from '../data/inventory';
 import { Search, Sparkles } from 'lucide-react';
+import inventoryTexture from '../assets/images/fantasy_map_texture_1787091618439.jpg';
 
 const hiddenArtifacts = [
   {
@@ -74,7 +75,7 @@ export function Inventory() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {inventoryItems.map((item) => (
             <div key={item.name} className="satchel-card">
-              <img alt="" src={item.icon} className="w-10 h-10 object-contain shrink-0 mt-0.5" />
+              <img alt="" src={inventoryTexture} className="inventory-thumbnail w-10 h-10 object-cover shrink-0 mt-0.5" />
               <div>
                 <h3 className="font-bold text-amber-950 text-sm">{item.name}</h3>
                 <p className="text-xs text-amber-800/80 mb-1">{item.tagline}</p>

@@ -509,7 +509,12 @@ html.night-mode .text-amber-950,
 html.night-mode .text-amber-900 { color: #f5d0a9 !important; } /* Soft glowing gold */
 html.night-mode .text-amber-800,
 html.night-mode .text-amber-700 { color: #c49a6c !important; } /* Muted gold */
-html.night-mode .text-gray-800 { color: #b8a99a !important; }
+html.night-mode .text-gray-800,
+html.night-mode .text-gray-600,
+html.night-mode .text-purple-600,
+html.night-mode .text-orange-600,
+html.night-mode .text-blue-600 { color: #d6cbbd !important; }
+html.night-mode .text-amber-800\/80 { color: #c49a6c !important; }
 
 /* Background Colors */
 html.night-mode .bg-amber-50\/50, 
@@ -671,6 +676,11 @@ html.night-mode .inventory-item {
 
 html.night-mode .inventory-icon {
   filter: drop-shadow(0 0 6px rgba(245, 208, 169, 0.15));
+}
+
+html.night-mode .inventory-thumbnail {
+  border: 1px solid #7a5c40;
+  filter: brightness(0.8) sepia(0.25);
 }
 
 /* Override specific hardcoded styles */
